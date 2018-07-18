@@ -27,6 +27,7 @@
                     Text="E-Mail"
                     VerticalOptions="Center">
                     </Label>
+                   
                     <Entry
                      Grid.Row="0"
                      Grid.Column="1"
@@ -41,6 +42,7 @@
                      Text="Password"
                      VerticalOptions="Center">
                     </Label>
+                   
                     <Entry                          
                      Grid.Row="1"
                      Grid.Column="1"
@@ -50,23 +52,32 @@
                      Placeholder="Password">
                     </Entry>
                </Grid>
+                
                 <ActivityIndicator 
                     VerticalOptions="CenterAndExpand"
                     IsRunning="{Binding IsRunning, Mode=TwoWay}">
                 </ActivityIndicator>
+                
                 <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Label Text="Rememberme"
+
+                    <Label Text="Rememberme in this device."
                        VerticalOptions="Center"
-                       HorizontalOptions="StartAndExpand"></Label>
+                       HorizontalOptions="StartAndExpand">                         
+                    </Label>
+                    
                     <Switch HorizontalOptions="End" IsToggled="{Binding IsRemembered, Mode=TwoWay}"></Switch>
+                    
                 </StackLayout>
+                
                 <Label  
                     TextColor="Blue"
                     Text="Forgot your Password?" 
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand">                    
                 </Label>
+                
                 <StackLayout  VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                    
                     <Button 
                      HorizontalOptions="FillAndExpand"  
                      BackgroundColor="Navy"
@@ -77,6 +88,7 @@
                      Text="Login."
                      TextColor="White">
                     </Button>
+                    
                     <Button 
                      BackgroundColor="Purple"
                      BorderRadius="23"
@@ -86,15 +98,21 @@
                      Text="Register."
                      TextColor="White">
                     </Button>
+                    
                 </StackLayout>
+                
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
-                    <Image Source="facebook_logo" WidthRequest="80">
+                   
+                    <Image Source="facebook_logo" WidthRequest="85">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding LoginFacebookCommand}"></TapGestureRecognizer>
                         </Image.GestureRecognizers>
                     </Image>
+                    
                     <Image Source="twitter_logo" WidthRequest="80"></Image>
+                    
                     <Image Source="instagram_logo" WidthRequest="70"></Image>
+                    
                 </StackLayout>
 
             </StackLayout>
