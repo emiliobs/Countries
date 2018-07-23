@@ -1,20 +1,21 @@
 ﻿namespace Countries.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
+    using Xamarin.Forms;
 
-    public class LoginViewModel
+    public class LoginViewModel : BaseViewModel
     {
 
         #region Atributes
 
         string email;
         string password;
-        bool isRunning;
-        bool isRemembered;
-        bool isEnabled;
+        private bool isRunning;
+        private bool isRemembered;
+        private bool isEnabled;
+
+        
 
         #endregion
 
@@ -22,32 +23,67 @@
 
         public string Email
         {
-            get;
-            set;
+            get => email;
+            set
+            {
+                if (email != value)
+                {
+                    email = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         public string Password
         {
-            get;
-            set;
+            get => password;
+            set
+            {
+                if (password != value)
+                {
+                    password = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         public bool IsRunning
         {
-            get;
-            set;
+            get => isRunning;
+            set
+            {
+                if (isRunning != value)
+                {
+                    isRunning = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         public bool IsRemembered
         {
-            get;
-            set;
+            get => isRemembered;
+            set
+            {
+                if (isRemembered != value)
+                {
+                    isRemembered = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         public bool IsEnabled
         {
-            get;
-            set;
+            get => isEnabled;
+            set
+            {
+                if (isEnabled != value)
+                {
+                    isEnabled = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         #endregion
@@ -58,14 +94,68 @@
         {
             IsRemembered = true;
             IsEnabled = true;
+
+            Email = "emilio@gmail.com";
+            Password = "Eabs123.";
         }
 
         #endregion
 
         #region Commands
 
-        public ICommand LoginCommand { get; set; }
+        public ICommand LoginCommand
+        {
+            get => new RelayCommand(Login);
+        }
+
+
 
         #endregion
+
+        #region Methods
+        private async void Login()
+        {
+            if (string.IsNullOrEmpty(Email))
+            {
+
+                await Application.Current.MainPage.DisplayAlert("Error","You must Enter an Email.","Accept");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Password))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error","You must Enter a Password","Accept");
+                return;
+            }
+
+            IsRunning = true;
+            IsEnabled = false;
+
+            if (Email != "emilio@gmail.com" || Password != "Eabs123.")
+            {
+                IsRunning = false;
+                IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error", 
+                    "E-Mail or Password incorrect", 
+                    "Accept");
+
+                password = string.Empty;
+                
+                return;
+            }
+
+            await Application.Current.MainPage.DisplayAlert("OK.", "Fuck yeah..", "Accept");
+
+            IsRunning = false;
+            IsEnabled = true;
+
+        }
+
+
+        #endregion
+
+       
     }
 }
