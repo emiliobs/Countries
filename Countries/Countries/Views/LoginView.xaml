@@ -6,12 +6,12 @@
              BindingContext="{ Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
         
-        <ScrollView  BindingContext="{Binding Login}">
+        <ScrollView  BindingContext="{Binding  Login}">
             
             <StackLayout Padding="10">
                 
                <Image
-                HeightRequest="180"                  
+                HeightRequest="180"
                 Source="onu.png">
                </Image>
                 
@@ -44,7 +44,7 @@
                      VerticalOptions="Center">
                     </Label>
                    
-                    <Entry                          
+                    <Entry
                      Grid.Row="1"
                      Grid.Column="1"
                      IsEnabled="True"
@@ -61,9 +61,9 @@
                 
                 <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal">
 
-                    <Label Text="Rememberme in this device."
+                    <Label Text="Rememberme on this device."
                        VerticalOptions="Center"
-                       HorizontalOptions="StartAndExpand">                         
+                       HorizontalOptions="StartAndExpand">
                     </Label>
                     
                     <Switch HorizontalOptions="End" IsToggled="{Binding IsRemembered, Mode=TwoWay}"></Switch>
@@ -74,13 +74,13 @@
                     TextColor="Blue"
                     Text="Forgot your Password?" 
                     HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand">                    
+                    VerticalOptions="CenterAndExpand">
                 </Label>
                 
                 <StackLayout  VerticalOptions="CenterAndExpand" Orientation="Horizontal">
                     
                     <Button 
-                     HorizontalOptions="FillAndExpand"  
+                     HorizontalOptions="FillAndExpand"
                      BackgroundColor="Navy"
                      BorderRadius="23"
                      Command="{Binding LoginCommand}"

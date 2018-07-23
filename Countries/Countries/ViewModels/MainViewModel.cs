@@ -6,6 +6,15 @@
 
     public class MainViewModel
     {
+        #region ViewModels
+        public LoginViewModel Login { get; set; }
+        #endregion
 
+        #region Coonstructors
+        public MainViewModel()
+        {
+            Login = new LoginViewModel();
+        }
+        #endregion
     }
 }
