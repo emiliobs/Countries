@@ -1,5 +1,6 @@
 ﻿namespace Countries.ViewModels
 {
+    using Countries.Views;
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     using Xamarin.Forms;
@@ -9,8 +10,8 @@
 
         #region Atributes
 
-        string email;
-        string password;
+        private string email;
+        private string password;
         private bool isRunning;
         private bool isRemembered;
         private bool isEnabled;
@@ -106,9 +107,7 @@
         public ICommand LoginCommand
         {
             get => new RelayCommand(Login);
-        }
-
-
+        }   
 
         #endregion
 
@@ -146,10 +145,15 @@
                 return;
             }
 
-            await Application.Current.MainPage.DisplayAlert("OK.", "Fuck yeah..", "Accept");
+            //aqui referencio el patron singleton:
+            MainViewModel.GetInstance().Countries = new CountriesViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new CountriesView());
 
             IsRunning = false;
             IsEnabled = true;
+            Email = string.Empty;
+            Password = string.Empty;
+
 
         }
 

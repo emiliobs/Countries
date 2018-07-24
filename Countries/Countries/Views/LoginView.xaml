@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Countries.Views.LoginView"
-             Title="Countries - Login."
-             BindingContext="{ Binding Main, Source={StaticResource Locator}}">
+             BindingContext="{ Binding Main, Source={StaticResource Locator}}"
+             Title="Countries - Login.">
     <ContentPage.Content>
         
         <ScrollView  BindingContext="{Binding  Login}">
