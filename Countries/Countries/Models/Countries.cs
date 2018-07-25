@@ -1,8 +1,8 @@
-﻿namespace Lands.Models
+﻿namespace Countries.Models
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
-    public class Land
+    public class Countries
     {
         [JsonProperty("name")]
         public string Name { get; set; }

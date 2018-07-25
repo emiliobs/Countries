@@ -1,4 +1,4 @@
-﻿namespace Lands.Models
+﻿namespace Countries.Models
 {
     using System;
     using System.Collections.Generic;
