@@ -52,6 +52,21 @@
 
         private async void LoadCountries()
         {
+            //aqui ikro mikro si hay conecction con internet:
+            var connection = await apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Accept");
+                //aqui hago un back de la vista:
+                await Application.Current.MainPage.Navigation.PopAsync();
+
+                return;
+            }
+
             var apisecurity = Application.Current.Resources["APICountries"].ToString();
 
             var response = await this.apiService.GetList<Countries>(apisecurity,"/rest","/v2/all");
@@ -59,6 +74,10 @@
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert("Error",response.Message,"Accept");
+
+                //aqui hago un back de la vista:
+                await Application.Current.MainPage.Navigation.PopAsync();
+
                 return;
             }
 

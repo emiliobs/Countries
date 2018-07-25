@@ -35,7 +35,7 @@
                 return new Response()
                 {
 
-                    IsSuccess = true,
+                    IsSuccess = false,
                     Message = "Check your internet connection.!",
 
                 };
