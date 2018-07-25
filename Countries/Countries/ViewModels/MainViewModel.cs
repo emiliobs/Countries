@@ -14,13 +14,15 @@
         #region Coonstructors
         public MainViewModel()
         {
+            instance = this;
+
             Login = new LoginViewModel();
         }
         #endregion
 
         #region Singleton
 
-        private static MainViewModel instance;
+        static MainViewModel instance;
 
         public static MainViewModel GetInstance()
         {

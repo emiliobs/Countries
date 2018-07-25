@@ -2,14 +2,89 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Countries.Views.CountriesView"
-             BindingContext="{ Binding Main, Source={StaticResource Locator}}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Countries.">
     <ContentPage.Content>
         <StackLayout  BindingContext="{Binding Countries}" Padding="5">
-            <Label Text="Countries View.!!"
-                   TextColor="Red"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <SearchBar 
+                BackgroundColor="Silver"
+                Placeholder="Search...." 
+                Text="{Binding Filter, Mode=TwoWay}" 
+                SearchCommand="{Binding SearchCommand}">
+            </SearchBar>
+            
+            <ListView 
+                BackgroundColor="Silver"
+                ItemsSource="{Binding ListCountries}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True" 
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="5" CornerRadius="20" HasShadow="True">
+
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding SelectLandCommand}">                                        
+                                    </TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--<ffimageloading:CachedImage 
+                                        Grid.Column="0" 
+                                        HeightRequest="30" 
+                                        WidthRequest="60" 
+                                        Source="{Binding Flag, 
+                                       Converter={StaticResource SvgImageSourceConverter}}">
+                                    </ffimageloading:CachedImage>-->
+
+                                    <StackLayout Grid.Column="1" VerticalOptions="Center">
+
+                                        <Label
+                                            FontAttributes="Bold" 
+                                            FontSize="Medium" 
+                                            Text="{Binding Name}" 
+                                            TextColor="Black">                                            
+                                        </Label>
+
+                                        <Label 
+                                            Text="{Binding Capital}" 
+                                            TextColor="Black">                                            
+                                        </Label>
+
+                                        <!--<Label 
+                                            Text="{Binding Region}" 
+                                            TextColor="Black">
+                                        </Label>-->
+
+                                    </StackLayout>
+
+                                    <Image 
+                                        Grid.Column="2" 
+                                        HorizontalOptions="End" 
+                                        Source="ic_chevron">                                        
+                                    </Image>
+
+                                </Grid>
+                            </Frame>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
