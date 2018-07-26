@@ -138,7 +138,7 @@
 
             var response = await this.apiService.GetList<Countries>(apisecurity,"/rest","/v2/all");
 
-            if (!response.IsSuccess)                                  
+            if (!response.IsSuccess)
             {
                 IsRefreshing = false;
 

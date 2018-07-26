@@ -1,10 +1,17 @@
 ﻿namespace Countries.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using Models;
     public class CountryViewModel
     {
+        #region Properties
+        public Countries Country { get; set; }
+        #endregion
 
+        #region Contructors
+        public CountryViewModel(Countries country)
+        {
+            Country = country;
+        } 
+        #endregion
     }
 }

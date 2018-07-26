@@ -5,10 +5,19 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Country.">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Country..."
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <ScrollView BindingContext="{Binding Country}" Padding="5">
+            <StackLayout>
+                <Label 
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding Country.Name}"
+                    TextColor="Black">                     
+                </Label>
+                               
+            </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>
