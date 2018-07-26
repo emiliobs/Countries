@@ -30,7 +30,7 @@
 
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer
-                                        Command="{Binding SelectLandCommand}">                                        
+                                        Command="{Binding SelectCountryCommand}">                                        
                                     </TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
 
@@ -72,6 +72,7 @@
                                     </StackLayout>
 
                                     <Image 
+                                        HeightRequest="50"
                                         Grid.Column="2" 
                                         HorizontalOptions="End" 
                                         Source="ic_chevron">                                        

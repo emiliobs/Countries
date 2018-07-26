@@ -9,6 +9,7 @@
         #region ViewModels
         public LoginViewModel Login { get; set; }
         public CountriesViewModel Countries { get; set; }
+        public CountryViewModel Country { get; set; }
         #endregion
 
         #region Coonstructors

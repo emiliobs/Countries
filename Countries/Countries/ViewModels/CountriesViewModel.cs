@@ -20,7 +20,7 @@
 
         #region Atributes
 
-        private ObservableCollection<Countries> listCountries;
+        private ObservableCollection<CountryItemViewModel> listCountries;
         private bool isRefreshing;
         private string filter;
         private List<Countries> countriesList;
@@ -57,7 +57,7 @@
             }
         }
 
-        public ObservableCollection<Countries> ListCountries
+        public ObservableCollection<CountryItemViewModel> ListCountries
         {
             get => listCountries;
             set
@@ -87,23 +87,28 @@
 
         public ICommand RefreshCommand { get => new RelayCommand(LoadCountries); }
         public ICommand SearchCommand { get => new RelayCommand(Search); }
-
-
+        
 
         #endregion
 
         #region Methods
 
+      
         private void Search()
         {
             if (string.IsNullOrEmpty(Filter))
             {
-                ListCountries = new ObservableCollection<Countries>(countriesList);
+                //ListCountries = new ObservableCollection<Countries>(countriesList);
+                ListCountries = new ObservableCollection<CountryItemViewModel>(
+                             this.ToCountryItemViewModel());
             }
             else
             {
-                ListCountries = new ObservableCollection<Countries>(
-                    countriesList.Where(c => c.Name.ToLower().Contains(Filter.ToLower()) ||
+                //ListCountries = new ObservableCollection<Countries>(
+                //    countriesList.Where(c => c.Name.ToLower().Contains(Filter.ToLower()) ||
+                //                             c.Capital.ToLower().Contains(Filter.ToLower())));
+                ListCountries = new ObservableCollection<CountryItemViewModel>(
+                    ToCountryItemViewModel().Where(c => c.Name.ToLower().Contains(Filter.ToLower()) ||
                                              c.Capital.ToLower().Contains(Filter.ToLower())));
             }
         }
@@ -145,15 +150,55 @@
                 return;
             }
 
-             countriesList =  (List<Countries>)response.Result;   
-             ListCountries = new ObservableCollection<Countries>(countriesList);
+             countriesList =  (List<Countries>)response.Result;
+            //ListCountries = new ObservableCollection<Countries>(countriesList);
+            ListCountries = new ObservableCollection<CountryItemViewModel>(
+                             this.ToCountryItemViewModel());
 
             IsRefreshing = false;
 
         }
 
+        private IEnumerable<CountryItemViewModel> ToCountryItemViewModel()
+        {
+            return countriesList.Select(c => new CountryItemViewModel
+            {
+               
+                Alpha2Code = c.Alpha2Code,
+                Alpha3Code = c.Alpha3Code,
+                AltSpellings = c.AltSpellings,
+                Area = c.Area,
+                Borders = c.Borders,
+                CallingCodes =c.CallingCodes,
+                Capital = c.Capital,
+                Cioc = c.Cioc,
+                Currencies =c.Currencies,
+                Demonym =c.Demonym,
+                Flag = c.Flag,
+                Gini = c.Gini,
+                Languages = c.Languages,
+                Latlng = c.Latlng,
+                Name = c.Name,
+                NativeName = c.NativeName,
+                NumericCode = c.NumericCode,
+                Population = c.Population,
+                Region = c.Region,
+                RegionalBlocs = c.RegionalBlocs,
+                Subregion = c.Subregion,
+                Timezones =c.Timezones,
+                TopLevelDomain = c.TopLevelDomain,
+                Translations = c.Translations,
+                
+
+            });
+        }
+
+
+
+
+
         #endregion
 
-       
+
     }
 }
