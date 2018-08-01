@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using Models;
 
     public class MainViewModel
     {
@@ -10,6 +11,13 @@
         public LoginViewModel Login { get; set; }
         public CountriesViewModel Countries { get; set; }
         public CountryViewModel Country { get; set; }
+        #endregion
+
+        #region Properties
+
+        public List<Countries> countriesList { get; set; }
+
+
         #endregion
 
         #region Coonstructors

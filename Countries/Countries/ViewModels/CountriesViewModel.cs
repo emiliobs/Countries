@@ -23,8 +23,7 @@
         private ObservableCollection<CountryItemViewModel> listCountries;
         private bool isRefreshing;
         private string filter;
-        private List<Countries> countriesList;
-
+        //private List<Countries> countriesList;         
 
         #endregion
 
@@ -150,7 +149,7 @@
                 return;
             }
 
-             countriesList =  (List<Countries>)response.Result;
+             MainViewModel.GetInstance().countriesList =  (List<Countries>)response.Result;
             //ListCountries = new ObservableCollection<Countries>(countriesList);
             ListCountries = new ObservableCollection<CountryItemViewModel>(
                              this.ToCountryItemViewModel());
@@ -161,7 +160,7 @@
 
         private IEnumerable<CountryItemViewModel> ToCountryItemViewModel()
         {
-            return countriesList.Select(c => new CountryItemViewModel
+            return MainViewModel.GetInstance().countriesList.Select(c => new CountryItemViewModel
             {
                
                 Alpha2Code = c.Alpha2Code,

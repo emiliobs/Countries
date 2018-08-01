@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Countries.Views.CountryView"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Icon="ic_action_info"
              Title="Information.">
     <ContentPage.Content>
 
