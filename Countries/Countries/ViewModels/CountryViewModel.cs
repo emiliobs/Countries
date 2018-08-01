@@ -9,9 +9,37 @@
     {
         #region Atributes
         private ObservableCollection<Border> borders;
+        private ObservableCollection<Currency> currencies;
+        private ObservableCollection<Language> languages;
         #endregion
 
         #region Properties
+
+        public ObservableCollection<Language> Languages
+        {
+            get => languages;
+            set
+            {
+                if (languages != value)
+                {
+                    languages = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public ObservableCollection<Currency> Currencies
+        {
+            get => currencies;
+            set
+            {
+                if (currencies != value)
+                {
+                    currencies = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public ObservableCollection<Border> Borders
         {
@@ -33,6 +61,8 @@
         {
             Country = country;
             LoadBorders();
+            Currencies = new ObservableCollection<Currency>(Country.Currencies);
+            Languages = new ObservableCollection<Language>(Country.Languages);
         }
 
         #endregion

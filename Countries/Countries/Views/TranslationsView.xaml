@@ -6,10 +6,40 @@
              Icon="ic_action_g_translate"
              Title="Translations.">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Translations!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BindingContext="{Binding  Country}" Padding="5">
+            <Label 
+                FontAttributes="Bold"
+                FontSize="Large" 
+                HorizontalOptions="Center" 
+                Text="{Binding Country.Name}"
+                TextColor="Red">
+            </Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="Germany:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Country.Translations.Germany}" TextColor="Black"></Label>
+                <Label Grid.Column="0" Grid.Row="1" Text="Spanish:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Country.Translations.Spanish}" TextColor="Black"></Label>
+                <Label Grid.Column="0" Grid.Row="2" Text="Brazilian:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="2" Text="{Binding Country.Translations.Brazilian}" TextColor="Black"></Label>
+                <Label Grid.Column="0" Grid.Row="3" Text="Croatian:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="3" Text="{Binding Country.Translations.Croatian}" TextColor="Black"></Label>
+                <Label Grid.Column="0" Grid.Row="4" Text="Dutch:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="4" Text="{Binding Country.Translations.Dutch}" TextColor="Black"></Label>
+                <Label Grid.Column="0" Grid.Row="5" Text="French:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="5" Text="{Binding Country.Translations.French}" TextColor="Black"></Label>
+                <Label Grid.Column="0" Grid.Row="6" Text="Italian:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="6" Text="{Binding Country.Translations.Italian}" TextColor="Black"></Label>
+                <Label Grid.Column="0" Grid.Row="7" Text="Japanese:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="7" Text="{Binding Country.Translations.Japanese}" TextColor="Black"></Label>
+                <Label Grid.Column="0" Grid.Row="8" Text="Portuguese:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="8" Text="{Binding Country.Translations.Portuguese}" TextColor="Black"></Label>
+                <Label Grid.Column="0" Grid.Row="9" Text="Persian:" TextColor="Black"></Label>
+                <Label Grid.Column="1" Grid.Row="9" Text="{Binding Country.Translations.Persian}" TextColor="Black" HorizontalOptions="Start"></Label>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

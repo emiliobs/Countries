@@ -6,10 +6,47 @@
              Icon="ic_action_language"
              Title="Languages.">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Languages!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BindingContext="{Binding Country}" Padding="5">
+            <Label 
+                FontAttributes="Bold" 
+                FontSize="Large" 
+                HorizontalOptions="Center" 
+                Text="{Binding Country.Name}" 
+                TextColor="Red">
+            </Label>
+            <ListView  HasUnevenRows="True" ItemsSource="{Binding Languages}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label 
+                                    Grid.Column="0" 
+                                    Text="{Binding Iso6392}" 
+                                    TextColor="Black">                                     
+                                </Label>
+                                <Label 
+                                    Grid.Column="1" 
+                                    Text="{Binding Name}" 
+                                    TextColor="Black">                                     
+                                </Label>
+                                <Label
+                                    Grid.Column="2"
+                                    HorizontalOptions="Start" 
+                                    Text="{Binding NativeName}" 
+                                    TextColor="Black">                                    
+                                </Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -12,7 +12,7 @@
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
                 Text="{Binding Country.Name}"
-                TextColor="Black">                
+                TextColor="Red">                
             </Label>
             <ListView
                 HasUnevenRows="True"
