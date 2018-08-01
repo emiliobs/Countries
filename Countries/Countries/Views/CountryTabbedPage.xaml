@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabs="clr-namespace:Countries.Views"
+             x:Class="Countries.Views.CountryTabbedPage" 
+            Title="Country">
+    <TabbedPage.Children>
+        <tabs:CountryView></tabs:CountryView>
+        <tabs:BordersView></tabs:BordersView>
+        <tabs:CurrenciesView></tabs:CurrenciesView>
+        <tabs:TranslationsView></tabs:TranslationsView>
+        <tabs:LanguagesView></tabs:LanguagesView>
+    </TabbedPage.Children>   
+    
+</TabbedPage>

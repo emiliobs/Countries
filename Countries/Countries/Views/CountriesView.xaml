@@ -56,7 +56,7 @@
                                             FontAttributes="Bold" 
                                             FontSize="Medium" 
                                             Text="{Binding Name}" 
-                                            TextColor="Black">                                            
+                                            TextColor="Red">                                            
                                         </Label>
 
                                         <Label 

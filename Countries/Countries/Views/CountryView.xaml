@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Countries.Views.CountryView"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Country.">
+             Title="Information.">
     <ContentPage.Content>
 
         <ScrollView BindingContext="{Binding Country}" Padding="5">
@@ -14,7 +14,7 @@
                        FontAttributes="Bold" 
                        HorizontalOptions="Center" 
                        Text="{Binding Country.Name}" 
-                       TextColor="Black">
+                       TextColor="Red">
                 </Label>
 
                 <!--<ffimageloading:CachedImage  
