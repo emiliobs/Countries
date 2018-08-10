@@ -15,6 +15,8 @@
 
         #region Properties
 
+        public TokenResponse Token { get; set; }
+
         public List<Countries> countriesList { get; set; }
 
 

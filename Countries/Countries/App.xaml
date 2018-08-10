@@ -6,9 +6,9 @@
 	<Application.Resources>
 
         <x:String x:Key="APICountries">http://restcountries.eu</x:String>
-        <!--<x:String x:Key="APISecurity">http://landsapi5.azurewebsites.net</x:String>-->
-        <!--<x:String x:Key="APISecurity2">http://soccerbackend.azurewebsites.net</x:String>-->
-
+        <x:String x:Key="APISecurity">http://countriesapi.azurewebsites.net/</x:String>
+        <!--<x:String x:Key="APISecurity2">http://soccerbackend.azurewebsites.net/</x:String>-->
+       
         <ResourceDictionary>
             <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
         </ResourceDictionary>

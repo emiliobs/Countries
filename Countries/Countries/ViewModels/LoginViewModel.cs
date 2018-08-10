@@ -1,5 +1,6 @@
 ﻿namespace Countries.ViewModels
 {
+    using Countries.Services;
     using Countries.Views;
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
@@ -7,6 +8,12 @@
 
     public class LoginViewModel : BaseViewModel
     {
+
+        #region Services
+
+      private ApiService apiService;
+
+        #endregion
 
         #region Atributes
 
@@ -93,11 +100,13 @@
 
         public LoginViewModel()
         {
+            apiService = new ApiService();
+
             IsRemembered = true;
             IsEnabled = true;
 
-            Email = "emilio@gmail.com";
-            Password = "Eabs123.";
+            Email = "barrera_emilio@hotmail.com";
+            Password = "Eabs-----55555";
         }
 
         #endregion
@@ -130,29 +139,72 @@
             IsRunning = true;
             IsEnabled = false;
 
-            if (Email != "emilio@gmail.com" || Password != "Eabs123.")
+            //if (Email != "barrera_emilio@hotmail.com" || Password != "Eabs123.")
+            //{
+            //    IsRunning = false;
+            //    IsEnabled = true;
+
+            //    await Application.Current.MainPage.DisplayAlert(
+            //        "Error", 
+            //        "E-Mail or Password incorrect", 
+            //        "Accept");
+
+            //    password = string.Empty;
+
+            //    return;
+            //}   
+
+            var connection = await apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                IsRunning = true;
+                IsEnabled = false;
+                await Application.Current.MainPage.DisplayAlert("Error",connection.Message,"Accept");
+                return;
+
+            }
+            //var apiSecurity = Application.Current.Resources["ApiProduct"].ToString();
+            var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
+
+            //aqui genero el token:
+            var token = await apiService.GetToken(apiSecurity, Email, Password);
+
+            if (token == null)
             {
                 IsRunning = false;
                 IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert("Error",
+                                                                "Something was wrong, please try late",
+                                                                "Accept");
+                return;
 
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error", 
-                    "E-Mail or Password incorrect", 
-                    "Accept");
+            }
 
-                password = string.Empty;
-                
+
+            if (string.IsNullOrEmpty(token.AccessToken))
+            {
+                IsRunning = false;
+                IsEnabled = true;   
+                await Application.Current.MainPage.DisplayAlert("Error",token.ErrorDescription, "Accept");
+                Password = string.Empty;
                 return;
             }
 
+            //apuntador del singleton para cuando necesito varios llamados del singleton:
+            var mainViewModel = MainViewModel.GetInstance();
+            //aqui guarso el token en memoria, para cuando lo necesite:
+            mainViewModel.Token = token;
             //aqui referencio el patron singleton:
-            MainViewModel.GetInstance().Countries = new CountriesViewModel();
+            mainViewModel.Countries = new CountriesViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new CountriesView());
 
             IsRunning = false;
             IsEnabled = true;
             Email = string.Empty;
             Password = string.Empty;
+
+           
 
 
         }
