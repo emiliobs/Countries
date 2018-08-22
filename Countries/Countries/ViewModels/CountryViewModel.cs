@@ -14,6 +14,7 @@
         #endregion
 
         #region Properties
+        public Countries Country { get; set; }  
 
         public ObservableCollection<Language> Languages
         {
@@ -53,7 +54,6 @@
                 }
             }
         }
-        public Countries Country { get; set; }
         #endregion
 
         #region Contructors

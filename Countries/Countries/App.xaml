@@ -6,9 +6,10 @@
 	<Application.Resources>
 
         <x:String x:Key="APICountries">http://restcountries.eu</x:String>
-        <x:String x:Key="APISecurity">http://countriesapi.azurewebsites.net/</x:String>
-        <!--<x:String x:Key="APISecurity2">http://soccerbackend.azurewebsites.net/</x:String>-->
-       
+        <x:String x:Key="APICountrytoken">http://countriesapi.azurewebsites.net</x:String>
+        <x:String x:Key="Prefix">/rest</x:String>
+        <x:String x:Key="Controller">/v2/all</x:String>
+
         <ResourceDictionary>
             <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
         </ResourceDictionary>

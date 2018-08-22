@@ -2,8 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Countries.Views.CountriesView"
+              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Countries.">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ffimageloadingsvg:SvgImageSourceConverter x:Key="SvgImageSourceConverter">
+            </ffimageloadingsvg:SvgImageSourceConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout  BindingContext="{Binding Countries}" Padding="5">
 
@@ -42,13 +53,13 @@
                                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                    <!--<ffimageloading:CachedImage 
+                                    <ffimageloading:CachedImage 
                                         Grid.Column="0" 
                                         HeightRequest="30" 
                                         WidthRequest="60" 
                                         Source="{Binding Flag, 
                                        Converter={StaticResource SvgImageSourceConverter}}">
-                                    </ffimageloading:CachedImage>-->
+                                    </ffimageloading:CachedImage>
 
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
 

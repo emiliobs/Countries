@@ -5,6 +5,7 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Windows.Input;
+    using Countries.Helpers;
     using Countries.Models;
     using Countries.Services;
     using GalaSoft.MvvmLight.Command;
@@ -124,9 +125,9 @@
                 IsRefreshing = false;
 
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    Languages.Error,
                     connection.Message,
-                    "Accept");
+                    Languages.Accept);
                 //aqui hago un back de la vista:
                 await Application.Current.MainPage.Navigation.PopAsync();
 
@@ -134,14 +135,16 @@
             }
 
             var apisecurity = Application.Current.Resources["APICountries"].ToString();
+            var prefix = Application.Current.Resources["Prefix"].ToString();
+            var controller = Application.Current.Resources["Controller"].ToString();
 
-            var response = await this.apiService.GetList<Countries>(apisecurity,"/rest","/v2/all");
+            var response = await this.apiService.GetList<Countries>(apisecurity,prefix,controller);
 
             if (!response.IsSuccess)
             {
                 IsRefreshing = false;
 
-                await Application.Current.MainPage.DisplayAlert("Error",response.Message,"Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,response.Message,Languages.Accept);
 
                 //aqui hago un back de la vista:
                 await Application.Current.MainPage.Navigation.PopAsync();

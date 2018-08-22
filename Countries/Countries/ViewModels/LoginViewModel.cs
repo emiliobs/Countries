@@ -1,5 +1,6 @@
 ﻿namespace Countries.ViewModels
 {
+    using Countries.Helpers;
     using Countries.Services;
     using Countries.Views;
     using GalaSoft.MvvmLight.Command;
@@ -126,13 +127,15 @@
             if (string.IsNullOrEmpty(Email))
             {
 
-                await Application.Current.MainPage.DisplayAlert("Error","You must Enter an Email.","Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,Languages.EmailValidation,Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(Password))
             {
-                await Application.Current.MainPage.DisplayAlert("Error","You must Enter a Password","Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.PasswordValidation,
+                                                                Languages.Accept);
+                //await Application.Current.MainPage.DisplayAlert("Erro,"You must Enter a Password","Accept");
                 return;
             }
 
@@ -160,23 +163,23 @@
             {
                 IsRunning = true;
                 IsEnabled = false;
-                await Application.Current.MainPage.DisplayAlert("Error",connection.Message,"Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,connection.Message,Languages.Accept);
                 return;
 
             }
             //var apiSecurity = Application.Current.Resources["ApiProduct"].ToString();
-            var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
+            var apiCountryToken = Application.Current.Resources["APICountrytoken"].ToString();
 
             //aqui genero el token:
-            var token = await apiService.GetToken(apiSecurity, Email, Password);
+            var token = await apiService.GetToken(apiCountryToken, Email, Password);
 
             if (token == null)
             {
                 IsRunning = false;
                 IsEnabled = true;
-                await Application.Current.MainPage.DisplayAlert("Error",
-                                                                "Something was wrong, please try late",
-                                                                "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,
+                                                                Languages.SomethingWrong,
+                                                                Languages.Accept);
                 return;
 
             }
@@ -186,7 +189,7 @@
             {
                 IsRunning = false;
                 IsEnabled = true;   
-                await Application.Current.MainPage.DisplayAlert("Error",token.ErrorDescription, "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,token.ErrorDescription, Languages.Accept);
                 Password = string.Empty;
                 return;
             }

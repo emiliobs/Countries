@@ -1,5 +1,6 @@
 ﻿namespace Countries.Services
 {
+    using Countries.Helpers;
     using Countries.Models;
     using Newtonsoft.Json;
     using Plugin.Connectivity;
@@ -22,7 +23,7 @@
 
                     IsSuccess = false,
 
-                    Message = "Please turn on your internet  settting.!",
+                    Message = Languages.ConnectionError1,
 
                 };
 
@@ -36,7 +37,7 @@
                 {
 
                     IsSuccess = false,
-                    Message = "Check your internet connection.!",
+                    Message = Languages.ConnectionError2,
 
                 };
 
