@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Countries.Views.CurrenciesView"
+             xmlns:i18n="clr-namespace:Countries.Helpers"              
               BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Icon="ic_action_monetization_on"
-             Title="Currencies.">
+             Title="{i18n:Translate Currencies}">
     <ContentPage.Content>
         <StackLayout Padding="5" BindingContext="{Binding Country}">
             <Label 

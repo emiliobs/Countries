@@ -5,9 +5,10 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:i18n="clr-namespace:Countries.Helpers"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Icon="ic_action_info"
-             Title="Information.">
+              Title="{i18n:Translate Information}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ffimageloadingsvg:SvgImageSourceConverter x:Key="SvgImageSourceConverter">
@@ -17,33 +18,28 @@
 
     <ContentPage.Content>
 
-        <ScrollView BindingContext="{Binding Country}" Padding="5">
-            <StackLayout>
-
-                <Label 
-                    FontSize="Large" 
-                       FontAttributes="Bold" 
-                       HorizontalOptions="Center" 
-                       Text="{Binding Country.Name}" 
-                       TextColor="Red">
+        <ScrollView  BindingContext="{Binding Country}">
+            <StackLayout
+                Padding="5">
+                <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding Country.Name}"
+                    TextColor="Black">
                 </Label>
-
-                <ffimageloading:CachedImage  
-                    Source="{Binding Country.Flag, 
-                    Converter={StaticResource SvgImageSourceConverter}}">
+                <ffimageloading:CachedImage 
+                    Source="{Binding Country.Flag, Converter={StaticResource SvgImageSourceConverter}}">
                 </ffimageloading:CachedImage>
-
-
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
                     <Label
                         Grid.Column="0"
                         Grid.Row="0"
-                        Text="Capital:"
+                        Text="{i18n:Translate Capital}"
                         TextColor="Black">
                     </Label>
                     <Label
@@ -56,7 +52,7 @@
                     <Label
                         Grid.Column="0"
                         Grid.Row="1"
-                        Text="Population:"
+                        Text="{i18n:Translate Population}"
                         TextColor="Black">
                     </Label>
                     <Label
@@ -69,7 +65,7 @@
                     <Label
                         Grid.Column="0"
                         Grid.Row="2"
-                        Text="Area:"
+                        Text="{i18n:Translate Area}"
                         TextColor="Black">
                     </Label>
                     <Label
@@ -82,46 +78,46 @@
                     <Label
                         Grid.Column="0"
                         Grid.Row="3"
-                        Text="Alpha Code 2:"
+                        Text="{i18n:Translate AlphaCode2}"
                         TextColor="Black">
                     </Label>
                     <Label
                         Grid.Column="1"
                         Grid.Row="3"
                         FontAttributes="Bold"
-                        Text="{Binding Country.Alpha2Code }"
+                        Text="{Binding Country.Alpha2Code}"
                         TextColor="Black">
                     </Label>
                     <Label
                         Grid.Column="0"
                         Grid.Row="4"
-                        Text="Alpha Code 3:"
+                        Text="{i18n:Translate AlphaCode3}"
                         TextColor="Black">
                     </Label>
                     <Label
                         Grid.Column="1"
                         Grid.Row="4"
                         FontAttributes="Bold"
-                        Text="{Binding Country.Alpha3Code }"
+                        Text="{Binding Country.Alpha3Code}"
                         TextColor="Black">
                     </Label>
                     <Label
                         Grid.Column="0"
                         Grid.Row="5"
-                        Text="Region:"
+                        Text="{i18n:Translate Region}"
                         TextColor="Black">
                     </Label>
                     <Label
                         Grid.Column="1"
                         Grid.Row="5"
                         FontAttributes="Bold"
-                        Text="{Binding Country.Region }"
+                        Text="{Binding Country.Region}"
                         TextColor="Black">
                     </Label>
                     <Label
                         Grid.Column="0"
                         Grid.Row="6"
-                        Text="Subregion:"
+                        Text="{i18n:Translate Subregion}"
                         TextColor="Black">
                     </Label>
                     <Label
@@ -134,7 +130,7 @@
                     <Label
                         Grid.Column="0"
                         Grid.Row="7"
-                        Text="Denonym:"
+                        Text="{i18n:Translate Demonym}"
                         TextColor="Black">
                     </Label>
                     <Label
@@ -147,7 +143,7 @@
                     <Label
                         Grid.Column="0"
                         Grid.Row="8"
-                        Text="Gini:"
+                        Text="{i18n:Translate GINI}"
                         TextColor="Black">
                     </Label>
                     <Label
@@ -160,7 +156,7 @@
                     <Label
                         Grid.Column="0"
                         Grid.Row="9"
-                        Text="Native Name:"
+                        Text="{i18n:Translate NativeName}"
                         TextColor="Black">
                     </Label>
                     <Label
@@ -168,13 +164,12 @@
                         Grid.Row="9"
                         FontAttributes="Bold"
                         Text="{Binding Country.NativeName}"
-                        HorizontalOptions="StartAndExpand"
                         TextColor="Black">
                     </Label>
                     <Label
                         Grid.Column="0"
                         Grid.Row="10"
-                        Text="Numeric Code:"
+                        Text="{i18n:Translate NumericCode}"
                         TextColor="Black">
                     </Label>
                     <Label
@@ -187,7 +182,7 @@
                     <Label
                         Grid.Column="0"
                         Grid.Row="11"
-                        Text="Cioc:"
+                        Text="{i18n:Translate CIOC}"
                         TextColor="Black">
                     </Label>
                     <Label
@@ -198,10 +193,8 @@
                         TextColor="Black">
                     </Label>
                 </Grid>
-
-
             </StackLayout>
         </ScrollView>
-        
+
     </ContentPage.Content>
 </ContentPage>

@@ -2,8 +2,9 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tabs="clr-namespace:Countries.Views"
-             x:Class="Countries.Views.CountryTabbedPage" 
-            Title="Country">
+             x:Class="Countries.Views.CountryTabbedPage"   
+            xmlns:i18n="clr-namespace:Countries.Helpers"                
+            Title="{i18n:Translate Country}">
     <TabbedPage.Children>
         <tabs:CountryView></tabs:CountryView>
         <tabs:BordersView></tabs:BordersView>

@@ -5,8 +5,9 @@
               xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:i18n="clr-namespace:Countries.Helpers"                
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Countries.">
+             Title="{i18n:Translate Countries}">
     
     <ContentPage.Resources>
         <ResourceDictionary>
