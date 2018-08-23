@@ -8,12 +8,17 @@ namespace Countries
 {
 	public partial class App : Application
 	{
+        #region Properties
+        public static NavigationPage Navigator { get; internal set; } 
+        #endregion
+
         #region Contructors
         public App()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new LoginView());
+           // MainPage = new MasterDetailView();
         } 
         #endregion
 

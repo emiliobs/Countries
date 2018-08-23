@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Countries.Helpers"
+             x:Class="Countries.Views.MyProfileView"
+              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate MyProfile}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to MyProfileView!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

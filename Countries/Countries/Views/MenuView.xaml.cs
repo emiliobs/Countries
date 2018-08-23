@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Countries.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PruebaView : ContentPage
+	public partial class MenuView : ContentPage
 	{
-		public PruebaView ()
+		public MenuView ()
 		{
 			InitializeComponent ();
 		}

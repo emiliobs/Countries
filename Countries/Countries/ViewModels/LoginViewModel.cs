@@ -107,7 +107,7 @@
             IsEnabled = true;
 
             Email = "barrera_emilio@hotmail.com";
-            Password = "Eabs-----55555";
+            Password = "Eabs123.";
         }
 
         #endregion
@@ -200,7 +200,10 @@
             mainViewModel.Token = token;
             //aqui referencio el patron singleton:
             mainViewModel.Countries = new CountriesViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new CountriesView());
+            //await Application.Current.MainPage.Navigation.PushAsync(new CountriesView());
+
+            //despues del login navigo a la MasterdetailsView sin apilar:
+            Application.Current.MainPage = new MasterDetailView();
 
             IsRunning = false;
             IsEnabled = true;

@@ -246,9 +246,6 @@
   <data name="MyLanguages" xml:space="preserve">
     <value>Idiomas</value>
   </data>
-  <data name="Menu" xml:space="preserve">
-    <value>Menu</value>
-  </data>
   <data name="MyProfile" xml:space="preserve">
     <value>Meu perfil</value>
   </data>
@@ -359,5 +356,8 @@
   </data>
   <data name="ErrorChangingPassword" xml:space="preserve">
     <value>A senha não pode ser alterada, tente mais tarde.</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
   </data>
 </root>
