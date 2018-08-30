@@ -1,6 +1,8 @@
 ﻿using Countries.Backend.Helpers;
+using Countries.Backend.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +15,8 @@ namespace Countries.Backend
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<LocalDataContext,Migrations.Configuration>());
+
             this.CheckRolesAndSuperUser();
 
             AreaRegistration.RegisterAllAreas();

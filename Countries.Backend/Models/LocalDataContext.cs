@@ -7,5 +7,6 @@
     using Domain.Models;
     public class LocalDataContext : DataContext
     {
+        public System.Data.Entity.DbSet<Countries.Backend.Models.UserType> UserTypes { get; set; }
     }
 }
