@@ -19,7 +19,11 @@
 
         #region Properties
 
-        public TokenResponse Token { get; set; }
+        public string Token { get; set; }
+        public string TokenType { get; set; }
+
+
+        //public TokenResponse Token { get; set; }
 
         public List<Countries> countriesList { get; set; }
         public ObservableCollection<MenuItemViewModel> Menus{ get; set; }

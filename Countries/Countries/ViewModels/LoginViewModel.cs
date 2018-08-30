@@ -197,9 +197,19 @@
             //apuntador del singleton para cuando necesito varios llamados del singleton:
             var mainViewModel = MainViewModel.GetInstance();
             //aqui guarso el token en memoria, para cuando lo necesite:
-            mainViewModel.Token = token;
+            mainViewModel.Token = token.AccessToken;
+            mainViewModel.TokenType = token.TokenType;
+
+            if (IsRemembered)
+            {
+                //aqui guardo el token en persistencia:
+                Settings.Token = token.AccessToken;
+                Settings.TokenType = token.TokenType;
+            }
+
+           
             //aqui referencio el patron singleton:
-            mainViewModel.Countries = new CountriesViewModel();
+            mainViewModel.Countries = new CountriesViewModel();       
             //await Application.Current.MainPage.Navigation.PushAsync(new CountriesView());
 
             //despues del login navigo a la MasterdetailsView sin apilar:

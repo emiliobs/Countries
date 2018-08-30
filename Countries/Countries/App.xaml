@@ -7,6 +7,7 @@
 
         <x:String x:Key="APICountries">http://restcountries.eu</x:String>
         <x:String x:Key="APICountrytoken">http://countriesapi.azurewebsites.net</x:String>
+        <!--<x:String x:Key="APICountrytoken">http://countriesapi.azurewebsites.net</x:String>-->
         <x:String x:Key="Prefix">/rest</x:String>
         <x:String x:Key="Controller">/v2/all</x:String>
 

@@ -1,3 +1,5 @@
+using Countries.Helpers;
+using Countries.ViewModels;
 using Countries.Views;
 using System;
 using Xamarin.Forms;
@@ -16,9 +18,23 @@ namespace Countries
         public App()
         {
             InitializeComponent();
+               //Aqui pregunto si hay token
+            if (string.IsNullOrEmpty(Settings.Token))
+            {
 
-            MainPage = new NavigationPage(new LoginView());
-           // MainPage = new MasterDetailView();
+                MainPage = new NavigationPage(new LoginView());
+                // MainPage = new MasterDetailView();
+            }
+            else
+            {
+                //aqui si ya tengo el token en persistencia los envio a la pagina masterdetailview
+                var mainViewModel = MainViewModel.GetInstance();
+                mainViewModel.Token = Settings.Token;
+                mainViewModel.TokenType = Settings.TokenType;
+                mainViewModel.Countries = new CountriesViewModel();
+                MainPage = new MasterDetailView();
+            }
+
         } 
         #endregion
 
