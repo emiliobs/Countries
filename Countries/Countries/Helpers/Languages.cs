@@ -259,10 +259,7 @@
             get { return Resource.ConfirmValidation2; }
         }
 
-        public static string UserRegisteredMessage
-        {
-            get { return Resource.UserRegisteredMessage; }
-        }
+        public static string UserRegisteredMessage => Resource.UserRegisteredMessage;
 
         public static string SourceImageQuestion
         {
@@ -314,10 +311,7 @@
             get { return Resource.NewPasswordPlaceHolder; }
         }
 
-        public static string ConnectionError1
-        {
-            get { return Resource.ConnectionError1; }
-        }
+        public static string ConnectionError1 => Resource.ConnectionError1;
 
         public static string ConnectionError2
         {

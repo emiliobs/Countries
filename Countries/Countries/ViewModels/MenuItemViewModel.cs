@@ -36,9 +36,11 @@
                 var mainViewModel = MainViewModel.GetInstance();
                 mainViewModel.Token = string.Empty;
                 mainViewModel.TokenType = string.Empty;
-                
 
-                Application.Current.MainPage = new LoginView();
+                Application.Current.MainPage = new NavigationPage( new LoginView());
+
+                //Con esta navigate pierda la navegacion:
+                //Application.Current.MainPage = new LoginView();
             }
         }
 

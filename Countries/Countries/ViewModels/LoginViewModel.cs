@@ -106,8 +106,8 @@
             IsRemembered = true;
             IsEnabled = true;
 
-            Email = "barrera_emilio@hotmail.com";
-            Password = "Eabs123.";
+            //Email = "barrera_emilio@hotmail.com";
+            //Password = "Eabs123.";
         }
 
         #endregion

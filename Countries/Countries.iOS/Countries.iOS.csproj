@@ -191,7 +191,10 @@
     <BundleResource Include="Resources\ic_action_language.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ic_action_menu.png" />
+    <AndroidResource Include="Resources\ic_action_menu.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_action_monetization_on.png" />
