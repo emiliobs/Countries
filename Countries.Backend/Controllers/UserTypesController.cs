@@ -8,10 +8,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Countries.Backend.Models;
+using Countries.Domain.Models;
 
 namespace Countries.Backend.Controllers
 {
-     [Authorize(Roles ="Admin")]
     public class UserTypesController : Controller
     {
         private LocalDataContext db = new LocalDataContext();

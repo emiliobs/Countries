@@ -33,10 +33,10 @@
         [Display(Name = "Image")]
         public string ImagePath { get; set; }
 
-        //public int UserTypeId { get; set; }
+        public int UserTypeId { get; set; }
 
-        //[JsonIgnore]
-        //public virtual UserType UserType { get; set; }
+        [JsonIgnore]
+        public virtual UserType UserType { get; set; }
 
         //[NotMapped]
         //public byte[] ImageArray { get; set; }

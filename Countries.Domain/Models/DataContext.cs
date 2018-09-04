@@ -7,6 +7,8 @@
         {
         }
         public System.Data.Entity.DbSet<Countries.Domain.Models.User> Users { get; set; }
+        public System.Data.Entity.DbSet<Countries.Domain.Models.UserType> UserTypes { get; set; }
+
 
     }
 }
