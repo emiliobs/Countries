@@ -204,6 +204,19 @@
                 return;
             }
 
+
+            var prefixUsers = Application.Current.Resources["PrefixUsers"].ToString();
+            var controllerGetUserByEmail = Application.Current.Resources["ControllerGetUserByEmail"].ToString();
+
+            //aqui obtengo el usuario por medio del email:
+            var getUser = await apiService.GetUserByEmail(
+                apiCountryToken,
+                prefixUsers,
+                controllerGetUserByEmail,
+                Email
+                );
+
+
             //apuntador del singleton para cuando necesito varios llamados del singleton:
             var mainViewModel = MainViewModel.GetInstance();
             //aqui guarso el token en memoria, para cuando lo necesite:

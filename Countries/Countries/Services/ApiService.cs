@@ -173,6 +173,79 @@
         //Geto con token, con seguridad
 
 
+        public async Task<User> GetUserByEmail(
+          string urlBase,
+          string servicePrefix,
+          string controller, 
+          string email)
+        {
+            try
+            {
+                var model = new UserRequest
+                {
+                    Email = email,
+                };
+
+                var request = JsonConvert.SerializeObject(model);
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
+                var client = new HttpClient();
+                //client.DefaultRequestHeaders.Authorization =
+                //    new AuthenticationHeaderValue(tokenType, accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var url = $"{servicePrefix}{controller}";
+                var response = await client.PostAsync(url, content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+
+                var result = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<User>(result);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+       // public async Task<User> GetUserByEmail(
+       //string urlBase,
+       //string servicePrefix,
+       //string controller,
+       //string tokenType,
+       //string accessToken,
+       //string email)
+       // {
+       //     try
+       //     {
+       //         var model = new UserRequest
+       //         {
+       //             Email = email,
+       //         };
+
+       //         var request = JsonConvert.SerializeObject(model);
+       //         var content = new StringContent(request, Encoding.UTF8,"application/json");
+       //         var client = new HttpClient();
+       //         client.DefaultRequestHeaders.Authorization =
+       //             new AuthenticationHeaderValue(tokenType, accessToken);
+       //         client.BaseAddress = new Uri(urlBase);
+       //         var url = $"{servicePrefix}{controller}";
+       //         var response = await client.PostAsync(url, content);
+
+       //         if (!response.IsSuccessStatusCode)
+       //         {
+       //             return null;
+       //         }
+
+       //         var result = await response.Content.ReadAsStringAsync();
+       //         return JsonConvert.DeserializeObject<User>(result);
+       //     }
+       //     catch
+       //     {
+       //         return null;
+       //     }
+       // }
 
         public async Task<Response> Get<T>(
 

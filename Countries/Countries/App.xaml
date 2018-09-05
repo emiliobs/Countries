@@ -16,6 +16,7 @@
         <!--<x:String x:Key="APIUser">https://countriesapi.azurewebsites.net</x:String>-->
             <x:String x:Key="PrefixUsers">/api</x:String>
             <x:String x:Key="ControllerUsers">/Users</x:String>
+            <x:String x:Key="ControllerGetUserByEmail">/Users/GetUserByEmail</x:String>
         
             <!--Patron lacator-->
             <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
