@@ -622,11 +622,9 @@
         }
 
         public async Task<Response> Post<T>(string urlBase, string servicePrefix, string controller, T model)
-        {
-
+        {      
             try
-            {
-
+            {  
                 var request = JsonConvert.SerializeObject(model);
 
                 var content = new StringContent(request, Encoding.UTF8, "application/json");

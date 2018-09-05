@@ -17,10 +17,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.3.840" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.3.840" />
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.637442-pre1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Countries.Domain\Countries.Domain.csproj" />
+    <PackageReference Include="Xamarin.LiveReload" Version="0.3.27" />
   </ItemGroup>
 
   <ItemGroup>

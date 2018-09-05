@@ -83,7 +83,7 @@
                     
                     <Button 
                      HorizontalOptions="FillAndExpand"
-                     BackgroundColor="Navy"
+                     BackgroundColor="#460DFF"
                      BorderRadius="23"
                      Command="{Binding LoginCommand}"
                      HeightRequest="46" 
@@ -93,7 +93,7 @@
                     </Button>
                     
                     <Button 
-                     BackgroundColor="Purple"
+                     BackgroundColor="#C800FF"
                      BorderRadius="23"
                      Command="{Binding RegisterCommand}"
                      HeightRequest="46"

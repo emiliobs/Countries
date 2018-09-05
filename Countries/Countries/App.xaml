@@ -4,15 +4,22 @@
              xmlns:infra="clr-namespace:Countries.Infrastructure"
              x:Class="Countries.App">
 	<Application.Resources>
+        <ResourceDictionary>
 
-        <x:String x:Key="APICountries">http://restcountries.eu</x:String>
+           <x:String x:Key="APICountries">http://restcountries.eu</x:String>
         <x:String x:Key="APICountrytoken">http://countriesapi.azurewebsites.net</x:String>
         <!--<x:String x:Key="APICountrytoken">http://countriesapi.azurewebsites.net</x:String>-->
         <x:String x:Key="Prefix">/rest</x:String>
         <x:String x:Key="Controller">/v2/all</x:String>
-
-        <ResourceDictionary>
+       
+        <!--api User-->
+        <!--<x:String x:Key="APIUser">https://countriesapi.azurewebsites.net</x:String>-->
+            <x:String x:Key="PrefixUsers">/api</x:String>
+            <x:String x:Key="ControllerUsers">/Users</x:String>
+        
+            <!--Patron lacator-->
             <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
+            
         </ResourceDictionary>
 	</Application.Resources>
 </Application>

@@ -18,7 +18,12 @@ namespace Countries
         public App()
         {
             InitializeComponent();
-               //Aqui pregunto si hay token
+
+            #if true
+            LiveReload.Init();
+            #endif
+
+            //Aqui pregunto si hay token
             if (string.IsNullOrEmpty(Settings.Token))
             {
 

@@ -230,7 +230,10 @@
     <BundleResource Include="Resources\instagram_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\no_image.png" />
+    <AndroidResource Include="Resources\no_image.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\twitter_logo.png" />
