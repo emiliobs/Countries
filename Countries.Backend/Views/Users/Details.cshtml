@@ -47,12 +47,15 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ImagePath)
+            @if (!string.IsNullOrEmpty(Model.ImageFullPath))
+            {
+                <img src="@Url.Content(Model.ImageFullPath)" alt="Image" style="width:150px; height:150px; max-width:100px;" />
+            }
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }, new {  @class ="btn btn-primary"}) |
+    @Html.ActionLink("Back to List", "Index",new { }, new { @class = "btn btn-dark" })
 </p>
