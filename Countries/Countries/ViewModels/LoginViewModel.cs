@@ -4,6 +4,7 @@
     using Countries.Services;
     using Countries.Views;
     using GalaSoft.MvvmLight.Command;
+    using System;
     using System.Windows.Input;
     using Xamarin.Forms;
 
@@ -114,14 +115,23 @@
 
         #region Commands
 
+        public ICommand RegisterCommand { get => new RelayCommand(Register); }
+                                      
         public ICommand LoginCommand
         {
             get => new RelayCommand(Login);
-        }   
+        }
 
         #endregion
 
         #region Methods
+        private async void Register()
+        {
+            //aqui instacio la clase registeviewmodel con el patron sigleton desde el mainviewmodel
+            MainViewModel.GetInstance().RegisterNewUsers = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterView());
+        }
+
         private async void Login()
         {
             if (string.IsNullOrEmpty(Email))

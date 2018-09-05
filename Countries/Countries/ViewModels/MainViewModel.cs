@@ -15,6 +15,7 @@
         public CountryViewModel Country { get; set; }
         public MyProfileView MyProfile { get; set; }
         public StatisticsViewModel Statistics { get; set; }
+        public RegisterViewModel RegisterNewUsers { get; set; }
         #endregion
 
         #region Properties
